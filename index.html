@@ -6,10 +6,10 @@
     <meta name="description" content="Oma’s Spray - Order products directly via WhatsApp with one click">
     <meta name="keywords" content="ecommerce, whatsapp shopping, online store, luxury watches, designer handbags">
     <meta name="author" content="Oma’s Spray">
-    <meta property="og:title" content="Oma’s Spray - WhatsApp E-commerce">
+    <meta property="og:title" content="Oma’s Spray - Premium Perfume Products">
     <meta property="og:description" content="Order premium products with one click via WhatsApp">
     <meta property="og:type" content="website">
-    <title>Oma’s Spray - Premium Perfume Products</title>
+    <title>Oma’s Spray - Home of Premium Perfume Products</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -1560,18 +1560,32 @@
 
         <section class="newsletter" aria-labelledby="newsletter-heading">
     <div class="container">
-        <section class="newsletter" aria-labelledby="newsletter-heading">
-            <div class="container">
-                <h3 id="newsletter-heading">Stay Updated</h3>
-                <p>Subscribe to our newsletter for exclusive offers, new arrivals, and special discounts</p>
-                <form class="newsletter-form" onsubmit="redirectToWhatsApp(event)">
-            <input type="email" class="newsletter-input" placeholder="Your email address" required name="email" id="userEmail">
+        <h3 id="newsletter-heading">Stay Updated</h3>
+        <p>Subscribe to our newsletter for exclusive offers, new arrivals, and special discounts</p>
+        <form class="newsletter-form" onsubmit="sendToWhatsApp(event)">
+            <!-- Email input -->
+            <input type="email" class="newsletter-input" placeholder="Your email address" required name="email" id="emailInput">
+            
+            <!-- Submit button -->
             <button type="submit" class="newsletter-button">Subscribe</button>
-        </form>        
+        </form>
+        
+        <script>
+          function sendToWhatsApp(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+        
+            const email = document.getElementById("emailInput").value;
+            const phoneNumber = "2349065012443"; // Replace with your WhatsApp number (no + or spaces)
+            const message = `Hello Oma's Spray! I just subscribed to the newsletter. My email is: ${email}`;
+            const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        
+            window.open(waUrl, '_blank'); // Open WhatsApp chat in a new tab
+          }
+        </script>
+        
     </div>
 </section>
     </main>
-
     <footer id="contact" aria-labelledby="contact-heading">
         <div class="footer-container">
             <div class="footer-about">
@@ -1586,7 +1600,7 @@
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="https://omaspray.com.ng/">Home</a></li>
                     <li><a href="#products">Products</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -1632,14 +1646,13 @@
                     Mon–Fri: 9AM – 6PM
                 </p>
             </div>
-            
-                    </div>
-                  <div class="footer-bottom">
-                <p class="copyright">
-                    &copy; 2024 - <span id="year"></span> Oma's Spray. All Rights Reserved.
-                </p>
-            </div>
-                </footer>
+    
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2024 - <span id="year"></span> Oma's Spray. All Rights Reserved.
+            </p>
+        </div>
+    </footer>    
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/2349065012443" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
@@ -1649,21 +1662,6 @@
     <div class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </div>
-
-    <script>
-        // Set current year in the footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-    
-    <script>
-        function redirectToWhatsApp(event) {
-            event.preventDefault();
-            const email = document.getElementById('userEmail').value;
-            const message = `Hello, Oma’s Spray! I just subscribed to the newsletter. My email is: ${email}`;
-            const whatsappURL = `https://wa.me/2349065012443?text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, '_blank');
-        }
-    </script>
 
     <script>
         // Enhanced Product Slider Functionality
@@ -1801,5 +1799,8 @@
             });
         });
     </script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
 </body>
 </html>

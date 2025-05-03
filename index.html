@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oma’s Spray - Order products directly via WhatsApp with one click">
+    <meta name="keywords" content="ecommerce, whatsapp shopping, online store, luxury watches, designer handbags">
+    <meta name="author" content="Oma’s Spray">
+    <meta property="og:title" content="Oma’s Spray - WhatsApp E-commerce">
+    <meta property="og:description" content="Order premium products with one click via WhatsApp">
+    <meta property="og:type" content="website">
+    <title>Oma’s Spray - Premium Perfume Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="icon" type="image/x-icon" href="https://www.odoo.com/web/static/img/favicon.ico">
+    <style>
+        /* Reset and base styles */
+        :root {
+            --primary-color: #25D366;
+            --primary-dark: #128C7E;
+            --secondary-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #fff;
+            --accent-color: #e67e22;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--text-light);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--text-light);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        /* Hero section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://omaspray.iauestudentsaffairs.com/Rose-of-no-mans-land-Blanche-Super-cedar.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-light);
+            text-align: center;
+            padding: 8rem 1rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Main content container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Products section */
+        .products {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            margin: 1rem auto 0;
+        }
+
+        /* Featured Products Slider */
+        .featured-slider {
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-item {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 2rem;
+            background-color: var(--text-light);
+            text-align: center;
+        }
+
+        .slider-item img {
+            max-width: 100%;
+            height: 400px;
+            object-fit: contain;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+        }
+
+        .slider-item h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .slider-item p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .product-card {
+            background: var(--text-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .product-image-container {
+            position: relative;
+            padding-top: 100%; /* Square aspect ratio */
+            overflow: hidden;
+        }
+
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.8rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1.2rem 0;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .rating {
+            color: var(--accent-color);
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 1.5rem;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-btn:hover, .whatsapp-btn:focus {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Perfume Collection List */
+        .perfume-collection {
+            background-color: #f5f5f5;
+            padding: 4rem 0;
+        }
+
+        .collection-list {
+            columns: 3;
+            column-gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .collection-list li {
+            margin-bottom: 0.8rem;
+            break-inside: avoid;
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .collection-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+
+        /* Testimonials Slider */
+        .testimonials {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+
+        .testimonial-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card {
+            flex: 0 0 100%;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .testimonial-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--text-light);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .newsletter-button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .newsletter-button:hover {
+            background-color: #1a252f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 4rem 1rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-contact i {
+            margin-right: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #1a252f;
+            transform: translateY(-3px);
+        }
+
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .collection-list {
+                columns: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1rem;
+                background-attachment: scroll;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: var(--border-radius);
+                margin-bottom: 0.5rem;
+            }
+            
+            .newsletter-button {
+                border-radius: var(--border-radius);
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 5rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .slider-item {
+                padding: 2rem 1rem;
+            }
+            
+            .slider-item img {
+                height: 300px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .collection-list {
+                columns: 1;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .back-to-top {
+                bottom: 80px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://omaspray.iauestudentsaffairs.com/omaspray.jpg" alt="Oma's Spray Logo">
+            </div>
+            <h1>Welcome to Oma's Spray – Where Luxury Scents Meet Effortless Shopping</h1>
+            <p>Indulge in our exclusive collection of premium perfumes, carefully curated to elevate your signature style.</p>
+            <p class="sr-only"></p>
+        </div>
+    </header>
+
+    <section id="home" class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+            <h1 id="hero-heading">Premium Perfumes Delivered to Your Doorstep</h1>     
+            <a href="#products" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us" aria-labelledby="why-choose-heading">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="why-choose-heading">Why Choose Oma's Spray</h2>
+                    <p>We're committed to providing the best perfume shopping experience</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Premium Quality</h3>
+                        <p>We source only the finest perfumes from trusted manufacturers to ensure you get authentic, long-lasting fragrances.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Fast Delivery</h3>
+                        <p>Enjoy quick and reliable delivery services across Nigeria. We ensure your perfumes arrive safely and on time.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Support</h3>
+                        <p>Our customer service team is always available via WhatsApp to answer your questions and assist with orders.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3>Affordable Prices</h3>
+                        <p>Get luxury fragrances at competitive prices without compromising on quality or authenticity.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3>Special Offers</h3>
+                        <p>Regular discounts and promotions for our loyal customers. Follow us on social media to stay updated.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure Shopping</h3>
+                        <p>Your transactions are safe with us. We prioritize your privacy and data security in every purchase.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfume Collection Section -->
+        <section class="perfume-collection" aria-labelledby="collection-heading">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="collection-heading">Our Perfume Collection</h2>
+                    <p>Explore our extensive range of premium fragrances</p>
+                </div>
+                
+                <ul class="collection-list">
+                    <li>Pure Seduction</li>
+                    <li>Mad About You</li>
+                    <li>Love Spell</li>
+                    <li>Sugar Baby</li>
+                    <li>Pink Chiffon</li>
+                    <li>Baccarat Rouge</li>
+                    <li>Jean Paul Scandal</li>
+                    <li>Decadance</li>
+                    <li>Bombshell Victoria Secret</li>
+                    <li>Jadore</li>
+                    <li>Creed Aventus</li>
+                    <li>Good Girl</li>
+                    <li>Channel</li>
+                    <li>Mosuf</li>
+                    <li>Amouage Interlude</li>
+                    <li>Black Opium</li>
+                    <li>Gucci Oud</li>
+                    <li>Black Oud</li>
+                    <li>Oud Wood</li>
+                    <li>Tuscan Leather</li>
+                    <li>1 Million</li>
+                    <li>Black Orchid</li>
+                    <li>Marbit Man</li>
+                    <li>Hypnotic Poison</li>
+                    <li>Coconut Passion</li>
+                    <li>Dior Savage</li>
+                    <li>My Way</li>
+                    <li>Olympea</li>
+                    <li>Cool Water</li>
+                    <li>5th Avenue</li>
+                    <li>Faherient Dior</li>
+                    <li>212 VIP Men</li>
+                    <li>Bubbery woman</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="products" class="products" aria-labelledby="products-heading">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="products-heading">Featured Products</h2>
+                </div>
+                
+                <!-- Product Slider -->
+                <div class="featured-slider">
+                    <div class="slider-container">
+                        <div class="slider-item">
+                            <img src="https://omaspray.iauestudentsaffairs.com/Rose-of-no-mans-land-Blanche-Super-cedar.jpg" alt="Rose-of-no-mans-land-Blanche-Super-cedar" loading="lazy">
+                            <h3>Roses Collection</h3>
+                            <p>Discover our exclusive lineup with special discounts on selected items</p>
+                            <a href="https://omaspray.iauestudentsaffairs.com/#product-grid" class="cta-button">View Collection</a>
+                        </div>
+                        <div class="slider-item">
+                            <img src="https://omaspray.iauestudentsaffairs.com/Black Afghano.jpg" alt="Black Afghano" loading="lazy">
+                            <h3>New Arrivals</h3>
+                            <p>Explore our latest designer Perfumes just in this season</p>
+                            <a href="https://omaspray.iauestudentsaffairs.com/#product-grid" class="cta-button">Shop New Arrivals</a>
+                        </div>
+                        <div class="slider-item">
+                            <img src="https://omaspray.iauestudentsaffairs.com/Interlude Man.jpg" alt="Wireless Headphones in black" loading="lazy">
+                            <h3>Best Sellers</h3>
+                            <p>Check out our most popular Mens Perfumes with premium quality</p>
+                            <a href="https://omaspray.iauestudentsaffairs.com/#product-grid" class="cta-button">View Best Sellers</a>
+                        </div>
+                    </div>
+                    <div class="slider-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+                </div>
+<div class="section-title">
+    <h2>Selling Now</h2>
+</div>
+<div id="product-grid" class="product-grid">
+    <!-- Product 1 -->
+    <article class="product-card">
+        <span class="product-badge">Bestseller</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Black Afghano.jpg" alt="Black Afghano" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Black Afghano</h3>
+            <p class="product-description">An intense, smoky fragrance with rich oud, dark spices, and woody amber notes that create a mysterious and luxurious scent experience.</p>
+            <div class="price">
+                ₦6,500 <span class="original-price">₦8,800</span>
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Black Afghano" data-price="₦6,500" aria-label="Order Black Afghano via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 2 -->
+    <article class="product-card">
+        <span class="product-badge">Bestseller</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Black-Oud-Scandal-by-jpg.jpg" alt="Black Oud" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Black Oud</h3>
+            <p class="product-description">A luxurious blend of rare black oud, saffron, and amber that creates a deep, sensual fragrance with long-lasting intensity.</p>
+            <div class="price">
+                ₦20,000
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Black Oud" data-price="₦20,000" aria-label="Order Black Oud via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 3 -->
+    <article class="product-card">
+        <span class="product-badge">Sale</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Baccarat rouge.jpg
+" alt="Baccarat rouge" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Baccarat Rouge</h3>
+            <p class="product-description">A fresh citrus top with heart notes of freesia and base notes of sandalwood and musk creates this clean, sophisticated daytime fragrance.</p>
+            <div class="price">
+                ₦4,000 <span class="original-price">₦5,500</span>
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Baccarat rouge" data-price="₦4,000" aria-label="Order Baccarat Rouge via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 4 -->
+    <article class="product-card">
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Creed-Adventus.jpg" alt="Creed Adventus" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Creed Aventus</h3>
+            <p class="product-description">A bold masculine fragrance featuring pineapple, blackcurrant, birch, and musk that creates an aura of power and success.</p>
+            <div class="price">
+                ₦8,500
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Creed Aventus" data-price="₦8,500" aria-label="Order Creed Aventus via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 5 -->
+    <article class="product-card">
+        <span class="product-badge">New</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Decadence.jpg" alt="Decadence" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Decadence</h3>
+            <p class="product-description">A lavish floral-oriental scent with plum, iris, and saffron notes wrapped in amber and vetiver for an ultra-feminine luxury experience.</p>
+            <div class="price">
+                ₦8,500
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Decadence" data-price="₦8,500" aria-label="Order Decadence via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 6 -->
+    <article class="product-card">
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/24k.jpg" alt="24k" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>24k</h3>
+            <p class="product-description">An exquisite floral bouquet of Turkish rose, peony, and vanilla musk creates this romantic, long-lasting feminine fragrance.</p>
+            <div class="price">
+                ₦7,000
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="24k" data-price="₦7,000" aria-label="Order 24k via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 7 -->
+    <article class="product-card">
+        <span class="product-badge">Bestseller</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/One-million-blue Water-Soft Touch.jpg" alt="1 Million" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>1 Million</h3>
+            <p class="product-description">A bold, energetic blend of blood mandarin, peppermint, and spicy cinnamon with leather and amber wood base notes.</p>
+            <div class="price">
+                ₦3,500 <span class="original-price">₦4,500</span>
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="1 Million" data-price="₦3,500" aria-label="Order 1 Million via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 8 -->
+    <article class="product-card">
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/9PM.jpg" alt="9PM" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>9PM</h3>
+            <p class="product-description">A contrasting blend of bright bergamot and sensual tonka bean with cocoa and vanilla creates this intriguing feminine fragrance.</p>
+            <div class="price">
+                ₦15,000
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="9PM" data-price="₦15,000" aria-label="Order 9PM via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 9 -->
+    <article class="product-card">
+        <span class="product-badge">New</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Hayaati.jpg" alt="Hayaati" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Hayaati</h3>
+            <p class="product-description">A vibrant oriental fragrance blending juicy pear, jasmine petals, and warm vanilla for a youthful yet sophisticated scent.</p>
+            <div class="price">
+                ₦6,000
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Hayaati" data-price="₦5,000" aria-label="Order Hayaati via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 10 -->
+    <article class="product-card">
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Mosuf.jpg" alt="Mosuf" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Mosuf</h3>
+            <p class="product-description">A rich, woody fragrance featuring rare oud, sandalwood, and tonka bean that creates a luxurious, long-lasting scent experience.</p>
+            <div class="price">
+                ₦20,000
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Mosuf" data-price="₦20,000" aria-label="Order Mosuf via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 11 -->
+    <article class="product-card">
+        <span class="product-badge">Sale</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Kaly.jpg" alt="Kaly" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Kaly</h3>
+            <p class="product-description">A regal blend of bergamot, black pepper, and cedarwood with a heart of lavender and base of amber and musk.</p>
+            <div class="price">
+                ₦10,000 <span class="original-price">₦12,500</span>
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Kaly" data-price="₦10,000" aria-label="Order Kaly via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 12 -->
+    <article class="product-card">
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Pink chiffon.jpg" alt="Pink chiffon" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Pink chiffon</h3>
+            <p class="product-description">An intense aromatic fragrance with bergamot, oregano, and pimento berry over a base of amber, leather, and oud.</p>
+            <div class="price">
+                ₦6,500
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Pink chiffon" data-price="₦6,500" aria-label="Order Pink chiffon via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 13 -->
+    <article class="product-card">
+        <span class="product-badge">Bestseller</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Jadore-Burberry Woman-Decadence.jpg" alt="Jadore" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Jadore</h3>
+            <p class="product-description">A golden floral bouquet of jasmine, ylang-ylang, and Damascus rose with vanilla and musk base notes.</p>
+            <div class="price">
+                ₦12,000
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Jadore" data-price="₦12,000" aria-label="Order Jadore via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 14 -->
+    <article class="product-card">
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Rose-of-no-mans-land-Blanche-Super-cedar.jpg" alt="Rose of No Man's Land" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Rose of No Man's Land</h3>
+            <p class="product-description">A poetic rose fragrance with Turkish rose petals, raspberry blossom, and papyrus wood for a delicate yet memorable scent.</p>
+            <div class="price">
+                ₦5,500
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Rose of No Man's Land" data-price="₦5,500" aria-label="Order Rose of No Man's Land via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 15 -->
+    <article class="product-card">
+        <span class="product-badge">New</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Riggs.jpg" alt="Riggs" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Riggs</h3>
+            <p class="product-description">A bold masculine scent with bergamot, cardamom, and violet leaf over a base of leather, patchouli, and amber.</p>
+            <div class="price">
+                ₦20,000
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Riggs" data-price="₦20,000" aria-label="Order Riggs via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 16 -->
+    <article class="product-card">
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Storm.jpg" alt="Storm" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Storm</h3>
+            <p class="product-description">An energetic aquatic fragrance with citrus top notes, a heart of lavender and rosemary, on a woody amber base.</p>
+            <div class="price">
+                ₦3,500
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Storm" data-price="₦3,500" aria-label="Order Storm via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 17 -->
+    <article class="product-card">
+        <span class="product-badge">Sale</span>
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Shugarbaby.jpg" alt="Sugar Baby" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Sugar Baby</h3>
+            <p class="product-description">A sweet, playful fragrance with notes of caramel, vanilla, and tonka bean for a deliciously addictive scent.</p>
+            <div class="price">
+                ₦8,500 <span class="original-price">₦10,000</span>
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Sugar Baby" data-price="₦8,500" aria-label="Order Sugar Baby via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+
+    <!-- Product 18 -->
+    <article class="product-card">
+        <div class="product-image-container">
+            <img src="https://omaspray.iauestudentsaffairs.com/Valentinho.jpg" alt="Valentinho" class="product-image" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h3>Valentinho</h3>
+            <p class="product-description">A sophisticated floral-oriental fragrance with bergamot, jasmine, and vanilla for a timeless, elegant scent.</p>
+            <div class="price">
+                ₦4,100
+            </div>
+            <div class="product-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </span>
+                <span>In Stock</span>
+            </div>
+            <a href="#" class="whatsapp-btn" data-product="Valentinho" data-price="₦4,100" aria-label="Order Valentinho via WhatsApp">
+                <i class="fab fa-whatsapp"></i> Order Now
+            </a>
+        </div>
+    </article>
+</div>
+            
+        </section>
+
+        <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="testimonials-heading" style="color: white;">What Our Customers Say</h2>
+                </div>
+                <div class="testimonial-slider">
+                    <div class="testimonial-container">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "I ordered the Dior Savage and was amazed by the quality. The WhatsApp ordering process was so simple and the delivery was faster than expected!"
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://omaspray.iauestudentsaffairs.com/t2.jpg" alt="Sarah Johnson" class="author-avatar" loading="lazy">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Lagos, Nigeria</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "The Black Orchid I purchased is even more beautiful than described. Oma's Spray made the whole process from ordering to delivery completely hassle-free."
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://omaspray.iauestudentsaffairs.com/t1.jpg" alt="Michael Adebayo" class="author-avatar" loading="lazy">
+                                <div class="author-info">
+                                    <h4>Michael Adebayo</h4>
+                                    <p>Abuja, Nigeria</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "Excellent customer service! They responded to my WhatsApp messages immediately and helped me choose the perfect perfume for my wife. Will definitely shop again."
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://omaspray.iauestudentsaffairs.com/t3.jpg" alt="Amina Mohammed" class="author-avatar" loading="lazy">
+                                <div class="author-info">
+                                    <h4>Amina Mohammed</h4>
+                                    <p>Kano, Nigeria</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-dots">
+                        <span class="testimonial-dot active" data-index="0"></span>
+                        <span class="testimonial-dot" data-index="1"></span>
+                        <span class="testimonial-dot" data-index="2"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter" aria-labelledby="newsletter-heading">
+    <div class="container">
+        <h3 id="newsletter-heading">Stay Updated</h3>
+        <p>Subscribe to our newsletter for exclusive offers, new arrivals, and special discounts</p>
+        <form class="newsletter-form" action="https://formsubmit.co/esauvictor@icloud.com" method="POST">
+            <!-- Required FormSubmit hidden fields -->
+            <input type="hidden" name="_next" value="https://esauvictor.github.io/thank-you.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            
+            <!-- Email input -->
+            <input type="email" class="newsletter-input" placeholder="Your email address" required name="email">
+            
+            <!-- Submit button -->
+            <button type="submit" class="newsletter-button">Subscribe</button>
+        </form>
+    </div>
+</section>
+    </main>
+
+    <footer id="contact" aria-labelledby="contact-heading">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3 class="footer-logo">Oma's Spray</h3>
+                <p>Your trusted online store for premium Perfume products with convenient WhatsApp ordering and fast delivery across Nigeria.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/favour.andy.3194" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/favour.andy.3194?igsh=OW1ubGc0MHdxd29i" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/2349065012443" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Men's Fragrances</a></li>
+                    <li><a href="#">Women's Fragrances</a></li>
+                    <li><a href="#">Unisex Perfumes</a></li>
+                    <li><a href="#">Luxury Collections</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact" style="color: white;">
+                <h4 style="color: white;">Contact Us</h4>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+2349065012443" style="color: white; text-decoration: none;">+234 906 501 2443</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:omaspray@gmail.com" style="color: white; text-decoration: none;">omaspray@gmail.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Iwofe Ph, Nigeria</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2025 Oma's Spray. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2349065012443" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Enhanced Product Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Product slider
+            const sliderContainer = document.querySelector('.slider-container');
+            const slides = document.querySelectorAll('.slider-item');
+            const dots = document.querySelectorAll('.dot');
+            let currentIndex = 0;
+            let slideInterval;
+
+            // Set up dots to control slides
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentIndex = parseInt(this.getAttribute('data-index'));
+                    updateSlider();
+                    resetSlideTimer();
+                });
+            });
+
+            // Auto-advance slides every 5 seconds
+            function startSlideTimer() {
+                slideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider();
+                }, 5000);
+            }
+
+            function resetSlideTimer() {
+                clearInterval(slideInterval);
+                startSlideTimer();
+            }
+
+            function updateSlider() {
+                sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            startSlideTimer();
+
+            // Testimonial slider
+            const testimonialContainer = document.querySelector('.testimonial-container');
+            const testimonialSlides = document.querySelectorAll('.testimonial-card');
+            const testimonialDots = document.querySelectorAll('.testimonial-dot');
+            let testimonialIndex = 0;
+            let testimonialInterval;
+
+            testimonialDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    testimonialIndex = parseInt(this.getAttribute('data-index'));
+                    updateTestimonialSlider();
+                    resetTestimonialTimer();
+                });
+            });
+
+            function startTestimonialTimer() {
+                testimonialInterval = setInterval(() => {
+                    testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+                    updateTestimonialSlider();
+                }, 6000);
+            }
+
+            function resetTestimonialTimer() {
+                clearInterval(testimonialInterval);
+                startTestimonialTimer();
+            }
+
+            function updateTestimonialSlider() {
+                testimonialContainer.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+                testimonialDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === testimonialIndex);
+                });
+            }
+
+            startTestimonialTimer();
+
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // WhatsApp integration
+            const phoneNumber = '2349065012443'; // Nigerian number with country code
+            
+            document.querySelectorAll('.whatsapp-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const productName = this.getAttribute('data-product');
+                    const price = this.getAttribute('data-price');
+                    const customerName = prompt("Please enter your name for the order:");
+                    
+                    if (customerName) {
+                        // Create a detailed message with customer name
+                        const message = `Hello Oma's Spray!%0A%0AMy name is: ${encodeURIComponent(customerName)}%0A%0AI would like to order:%0A%0A*Product:* ${encodeURIComponent(productName)}%0A*Price:* ${encodeURIComponent(price)}%0A%0APlease let me know about:%0A- Availability%0A- Payment options%0A- Delivery details%0A%0AThank you!`;
+                        
+                        // Open WhatsApp in a new tab
+                        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                        
+                        // Track conversion (simplified)
+                        console.log(`Order initiated for ${productName} by ${customerName}`);
+                    }
+                });
+            });
+
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                const email = emailInput.value;
+                
+                if (email) {
+                    // In a real implementation, you would send this to your server
+                    console.log(`Subscribed email: ${email}`);
+                    alert('Thank you for subscribing to our newsletter!');
+                    emailInput.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

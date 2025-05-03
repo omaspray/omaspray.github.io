@@ -6,7 +6,7 @@
     <meta name="description" content="Oma’s Spray - Order products directly via WhatsApp with one click">
     <meta name="keywords" content="ecommerce, whatsapp shopping, online store, luxury watches, designer handbags">
     <meta name="author" content="Oma’s Spray">
-    <meta property="og:title" content="Oma’s Spray - Premium Perfume Products">
+    <meta property="og:title" content="Oma’s Spray - WhatsApp E-commerce">
     <meta property="og:description" content="Order premium products with one click via WhatsApp">
     <meta property="og:type" content="website">
     <title>Oma’s Spray - Premium Perfume Products</title>
@@ -1027,7 +1027,7 @@
                 </span>
                 <span>In Stock</span>
             </div>
-            <a href="" class="whatsapp-btn" data-product="Black Afghano" data-price="₦6,500" aria-label="Order Black Afghano via WhatsApp">
+            <a href="#" class="whatsapp-btn" data-product="Black Afghano" data-price="₦6,500" aria-label="Order Black Afghano via WhatsApp">
                 <i class="fab fa-whatsapp"></i> Order Now
             </a>
         </div>
@@ -1520,7 +1520,7 @@
                                 <img src="https://omaspray.com.ng/t2.jpg" alt="Sarah Johnson" class="author-avatar" loading="lazy">
                                 <div class="author-info">
                                     <h4>Sarah Johnson</h4>
-                                    <p>Rivers, Nigeria</p>
+                                    <p>Lagos, Nigeria</p>
                                 </div>
                             </div>
                         </div>
@@ -1538,13 +1538,13 @@
                         </div>
                         <div class="testimonial-card">
                             <div class="testimonial-content">
-                                "Excellent customer service! They responded to my WhatsApp messages immediately and helped me choose the perfect perfume for my husband. Will definitely shop again."
+                                "Excellent customer service! They responded to my WhatsApp messages immediately and helped me choose the perfect perfume for my wife. Will definitely shop again."
                             </div>
                             <div class="testimonial-author">
                                 <img src="https://omaspray.com.ng/t3.jpg" alt="Amina Mohammed" class="author-avatar" loading="lazy">
                                 <div class="author-info">
                                     <h4>Amina Mohammed</h4>
-                                    <p>Lagos, Nigeria</p>
+                                    <p>Kano, Nigeria</p>
                                 </div>
                             </div>
                         </div>
@@ -1560,23 +1560,14 @@
 
         <section class="newsletter" aria-labelledby="newsletter-heading">
     <div class="container">
-        <h3 id="newsletter-heading">Stay Updated</h3>
-        <p>Subscribe to our newsletter for exclusive offers, new arrivals, and special discounts</p>
-        <form class="newsletter-form" onsubmit="redirectToWhatsApp(event)">
-    <input type="email" class="newsletter-input" placeholder="Your email address" required name="email" id="userEmail">
-    <button type="submit" class="newsletter-button">Subscribe</button>
-</form>
-
-<script>
-    function redirectToWhatsApp(event) {
-        event.preventDefault();
-        const email = document.getElementById('userEmail').value;
-        const message = `Hello, Oma’s Spray! I just subscribed to the newsletter. My email is: ${email}`;
-        const whatsappURL = `https://wa.me/2349065012443?text=${encodeURIComponent(message)}`;
-        window.open(whatsappURL, '_blank');
-    }
-</script>
-
+        <section class="newsletter" aria-labelledby="newsletter-heading">
+            <div class="container">
+                <h3 id="newsletter-heading">Stay Updated</h3>
+                <p>Subscribe to our newsletter for exclusive offers, new arrivals, and special discounts</p>
+                <form class="newsletter-form" onsubmit="redirectToWhatsApp(event)">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required name="email" id="userEmail">
+            <button type="submit" class="newsletter-button">Subscribe</button>
+        </form>        
     </div>
 </section>
     </main>
@@ -1614,41 +1605,41 @@
                     <li><a href="#">Best Sellers</a></li>
                 </ul>
             </div>
-           <div class="footer-contact" style="color: white;">
-    <h4>Contact Us</h4>
-    
-    <p>
-        <i class="fas fa-phone-alt"></i>
-        <a href="tel:+2349065012443" style="color: white; text-decoration: none;">
-            +234 906 501 2443
-        </a>
-    </p>
-    
-    <p>
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:omaspray@gmail.com" style="color: white; text-decoration: none;">
-            omaspray@gmail.com
-        </a>
-    </p>
-    
-    <p>
-        <i class="fas fa-map-marker-alt"></i>
-        Rumuolumeni, Port Harcourt, Nigeria
-    </p>
-    
-    <p>
-        <i class="fas fa-clock"></i>
-        Mon–Fri: 9AM – 6PM
-    </p>
-</div>
-
-        </div>
-      <div class="footer-bottom">
-    <p class="copyright">
-        &copy; 2024 - <span id="year"></span> Oma's Spray. All Rights Reserved.
-    </p>
-</div>
-    </footer>
+            <div class="footer-contact" style="color: white;">
+                <h4>Contact Us</h4>
+                
+                <p>
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+2349065012443" style="color: white; text-decoration: none;">
+                        +234 906 501 2443
+                    </a>
+                </p>
+                
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:omaspray@gmail.com" style="color: white; text-decoration: none;">
+                        omaspray@gmail.com
+                    </a>
+                </p>
+                
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Rumuolumeni, Port Harcourt, Nigeria
+                </p>
+                
+                <p>
+                    <i class="fas fa-clock"></i>
+                    Mon–Fri: 9AM – 6PM
+                </p>
+            </div>
+            
+                    </div>
+                  <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; 2024 - <span id="year"></span> Oma's Spray. All Rights Reserved.
+                </p>
+            </div>
+                </footer>
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/2349065012443" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
@@ -1658,10 +1649,21 @@
     <div class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </div>
-<script>
-    // Set current year in the footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+
+    <script>
+        // Set current year in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    
+    <script>
+        function redirectToWhatsApp(event) {
+            event.preventDefault();
+            const email = document.getElementById('userEmail').value;
+            const message = `Hello, Oma’s Spray! I just subscribed to the newsletter. My email is: ${email}`;
+            const whatsappURL = `https://wa.me/2349065012443?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
     
     <script>
         // Enhanced Product Slider Functionality
@@ -1782,6 +1784,20 @@
                 });
             });
 
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                const email = emailInput.value;
+                
+                if (email) {
+                    // In a real implementation, you would send this to your server
+                    console.log(`Subscribed email: ${email}`);
+                    alert('Thank you for subscribing to our newsletter!');
+                    emailInput.value = '';
+                }
             });
         });
     </script>

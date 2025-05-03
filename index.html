@@ -1562,18 +1562,21 @@
     <div class="container">
         <h3 id="newsletter-heading">Stay Updated</h3>
         <p>Subscribe to our newsletter for exclusive offers, new arrivals, and special discounts</p>
-        <form class="newsletter-form" action="" method="POST">
-            <!-- Required FormSubmit hidden fields -->
-            <input type="hidden" name="_next" value="">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            
-            <!-- Email input -->
-            <input type="email" class="newsletter-input" placeholder="Your email address" required name="email">
-            
-            <!-- Submit button -->
-            <button type="submit" class="newsletter-button">Subscribe</button>
-        </form>
+        <form class="newsletter-form" onsubmit="redirectToWhatsApp(event)">
+    <input type="email" class="newsletter-input" placeholder="Your email address" required name="email" id="userEmail">
+    <button type="submit" class="newsletter-button">Subscribe</button>
+</form>
+
+<script>
+    function redirectToWhatsApp(event) {
+        event.preventDefault();
+        const email = document.getElementById('userEmail').value;
+        const message = `Hello, I just subscribed to the newsletter. My email is: ${email}`;
+        const whatsappURL = `https://wa.me/2349065012443?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+    }
+</script>
+
     </div>
 </section>
     </main>
@@ -1779,20 +1782,7 @@
                 });
             });
 
-            // Newsletter form submission
-            const newsletterForm = document.querySelector('.newsletter-form');
-            
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const emailInput = this.querySelector('input[type="email"]');
-                const email = emailInput.value;
-                
-                if (email) {
-                    // In a real implementation, you would send this to your server
-                    console.log(`Subscribed email: ${email}`);
-                    alert('Thank you for subscribing to our newsletter!');
-                    emailInput.value = '';
-                }
+        // Add Newsletter Stuff
             });
         });
     </script>

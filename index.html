@@ -1850,9 +1850,183 @@
     </footer>    
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/2349065012443" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+   <div class="whatsapp-chat-container">
+    <div class="whatsapp-chat-header">
+        <span class="whatsapp-close-btn">&times;</span>
+        <img src="https://omaspray.com.ng/logo.png" alt="Oma's Spray Logo" class="whatsapp-logo">
+        <span class="whatsapp-contact">Oma's Spray Support</span>
+    </div>
+    <div class="whatsapp-chat-messages">
+        <div class="chat-message system-message">
+            <p>Welcome to <strong>Oma’s Spray Support</strong>. Need help with your orders?</p>
+            <p>Contact our sales team directly: <a href="https://wa.me/2349065012443" class="whatsapp-number">+234 906 501 2443</a></p>
+            <p>Type your question below and we'll respond shortly!</p>
+        </div>
+    </div>
+    <div class="whatsapp-input-area">
+        <input type="text" class="whatsapp-input" placeholder="Type your message here...">
+        <button class="whatsapp-send-btn">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+</div>
+
+<div class="whatsapp-float-button">
+    <i class="fab fa-whatsapp"></i>
+</div>
+
+<style>
+.whatsapp-chat-container {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    width: 340px;
+    height: 450px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 9999;
+}
+
+.whatsapp-chat-header {
+    display: flex;
+    align-items: center;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.whatsapp-close-btn {
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.whatsapp-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.whatsapp-contact {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.whatsapp-chat-messages {
+    height: 350px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.chat-message {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.system-message {
+    background: #eaeaea;
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+}
+
+.whatsapp-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.whatsapp-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.whatsapp-send-btn {
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.whatsapp-float-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 9998;
+}
+
+.whatsapp-number {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chatContainer = document.querySelector('.whatsapp-chat-container');
+    const floatButton = document.querySelector('.whatsapp-float-button');
+    const closeButton = document.querySelector('.whatsapp-close-btn');
+    const inputField = document.querySelector('.whatsapp-input');
+    const sendButton = document.querySelector('.whatsapp-send-btn');
+    const messagesContainer = document.querySelector('.whatsapp-chat-messages');
+    
+    floatButton.addEventListener('click', function() {
+        chatContainer.style.display = chatContainer.style.display === 'block' ? 'none' : 'block';
+    });
+    
+    closeButton.addEventListener('click', function() {
+        chatContainer.style.display = 'none';
+    });
+    
+    sendButton.addEventListener('click', sendMessage);
+    inputField.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+    
+    function sendMessage() {
+        const message = inputField.value.trim();
+        if (message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message', 'user-message');
+            messageElement.innerHTML = `
+                <div style="margin-left: auto; background: #DCF8C6; padding: 10px 15px; border-radius: 18px; max-width: 80%;">
+                    ${message}
+                </div>
+            `;
+            messagesContainer.appendChild(messageElement);
+            inputField.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+    }
+});
+</script>
 
     <div class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
